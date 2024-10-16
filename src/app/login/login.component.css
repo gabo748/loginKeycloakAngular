@@ -1,4 +1,11 @@
-.full-width {
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Ajusta según el tamaño que necesites */
+  }
+  
+  .full-width {
     width: 100%;
     margin-bottom: 16px;
   }
@@ -17,9 +24,5 @@
   
   p {
     text-align: center;
-  }
-  
-  mat-icon {
-    cursor: pointer;
   }
   

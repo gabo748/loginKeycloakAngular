@@ -1,0 +1,30 @@
+<mat-card class="login-card">
+    <h2>Iniciar Sesión</h2>
+  
+    <!-- Loader spinner -->
+    <div *ngIf="isLoading" class="loader-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  
+    <!-- Formulario de login -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName="email" type="email" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
+        <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" class="full-width">Iniciar sesión</button>
+      <button mat-raised-button color="accent" (click)="redirectToGoogle()" type="button" class="full-width">Iniciar sesión con Google</button>
+    </form>
+  
+    <p *ngIf="!isLoading">¿No tienes una cuenta? <a routerLink="/signup">Regístrate aquí</a></p>
+  </mat-card>
+  
